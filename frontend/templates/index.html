@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Loan approval prediction system">
+  <title>LoanWhiz - Approval Predictor</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <!-- CSRF Token for AJAX requests -->
+  <meta name="csrf-token" content="{{ csrf_token }}">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Loan Approval Predictor</h1>
+      <p class="subtitle">Check your loan approval status instantly</p>
+    </header>
+    
+    <!-- Input Form -->
+    <form id="loanForm" aria-labelledby="form-heading">
+      {% csrf_token %}
+      <h2 id="form-heading" class="sr-only">Loan Information</h2>
+      
+      <div class="form-group">
+        <label for="loanId">Loan ID</label>
+        <input 
+          type="text" 
+          id="loanId" 
+          name="loanId"
+          placeholder="e.g., LP001002" 
+          required
+          aria-required="true"
+          pattern="[A-Za-z0-9]+"
+          title="Please enter a valid Loan ID (letters and numbers only)"
+        >
+        <small class="hint">Found on your application documents</small>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" id="predictBtn">
+          <span class="btn-text">Check Approval</span>
+          <span class="loading-spinner hidden" aria-hidden="true"></span>
+        </button>
+      </div>
+      
+      <!-- Error Display -->
+      <div id="error" class="error-message hidden" role="alert" aria-live="assertive"></div>
+    </form>
+    
+    <!-- Results Display -->
+    <section id="result" class="result-card hidden" aria-live="polite">
+      <h2>Prediction Result</h2>
+      <div class="result-content">
+        <p>Status: <strong id="status" class="status-text">-</strong></p>
+        <p>Confidence: <span id="confidence">-</span>%</p>
+      </div>
+      <div class="result-actions">
+        <button id="newRequestBtn" class="secondary-btn">Check Another Loan</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
