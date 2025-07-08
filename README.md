@@ -25,7 +25,7 @@ A full-stack Machine Learning web application that predicts the likelihood of a 
 
 | Layer        | Technology Used                      |
 |--------------|---------------------------------------|
-| Frontend     | Streamlit                            |
+| Frontend     | HTML, CSS, JS                        |
 | Backend      | Django, Django REST Framework        |
 | ML/Modeling  | Scikit-learn, XGBoost, Pandas        |
 | Data Storage | CSV, Pickle                          |
@@ -51,6 +51,31 @@ LoanPredictor/
 │ ├── ml_model/ # Trained models, utils, data
 │ └── migrations/
 ├── streamlit_app.py # Streamlit frontend interface
-├── frontend/ # Static files (optional)
+├── frontend/ # Static files 
 ├── requirements.txt # Python dependencies
 ├── .gitignore # Files/folders excluded from Git
+└── README.md
+
+---
+
+##  📊 Sample Inputs
+Example fields accepted by the predictor:
+
+Field	Description
+Gender	Male / Female
+Married	Yes / No
+ApplicantIncome	Numeric value
+Credit_History	1.0 (has credit) or 0.0 (no credit)
+LoanAmount	In thousands
+Self_Employed	Yes / No
+Education	Graduate / Not Graduate
+Property_Area	Urban / Rural / Semiurban
+
+---
+
+## ✅ Output
+The model returns:
+
+Loan Status: 'Approved' or 'Rejected'
+
+Confidence Score : Model's prediction probability
