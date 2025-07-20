@@ -45,16 +45,24 @@ A full-stack Machine Learning web application that predicts the likelihood of a 
 ## 📂 Project Structure
 
 LoanPredictor/
-├── loan_prediction_backend/ # Django backend
-│ ├── settings.py, urls.py, etc.
-│ └── prediction/ # App: models, views, serializers
-│ ├── ml_model/ # Trained models, utils, data
-│ └── migrations/
-├── streamlit_app.py # Streamlit frontend interface
-├── frontend/ # Static files 
-├── requirements.txt # Python dependencies
-├── .gitignore # Files/folders excluded from Git
-└── README.md
+loan_prediction_backend/ # Django backend
+
+settings.py, urls.py, etc.
+
+ prediction/ # App: models, views, serializers
+ 
+     ### ml_model/ # Trained models, utils, data
+     
+migrations/
+
+streamlit_app.py # Streamlit frontend interface
+
+frontend/ # Static files 
+
+requirements.txt # Python dependencies
+
+.gitignore # Files/folders excluded from Git
+
 
 ---
 
